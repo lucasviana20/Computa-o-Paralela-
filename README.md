@@ -1,8 +1,10 @@
 # Computacao-Paralela
 Grupo 02 (Computação Paralela)
 
-Membros do Grupo 
+PARTICIPANTES
 
 Lucas Ellery Viana
-#Eduardo Blassioli Gallego
-#Guilherme Crosera Lobo 
+
+Eduardo Blassioli Gallego
+
+Guilherme Crosera Lobo 
