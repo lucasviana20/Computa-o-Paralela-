@@ -1,2 +1,2 @@
 # Computacao-Paralela
-Grupo 02
+Grupo 02 (Computação Paralela)
