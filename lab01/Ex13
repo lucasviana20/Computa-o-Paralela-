@@ -30,7 +30,7 @@ int main()
 	
 	char Mensagem[100] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!”#$%&’()*+,-./0123456789:<;=>?@[]^_{`|}~abcdef";
 	
-	cout << "Mensagem: \n" << Mensagem << "\n\nQual a posicao que vamos excluir?(0-99): ";
+	cout << "Mensagem: \n" << Mensagem << "\n\nQual a posicao que vamos excluir?(0-98): ";
 	
 	cin >> Posicao;
 	
