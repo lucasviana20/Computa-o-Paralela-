@@ -1,6 +1,6 @@
 #include <iostream>
-#include <unistd.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -48,7 +48,8 @@ int main(void)
         Soma = Soma * FatorialParcial;
     }
     
-    cout << "\nSoma: " << Soma;
+    cout << "\nSoma: " << Soma << endl;
+    
     return 0;
 }
 
