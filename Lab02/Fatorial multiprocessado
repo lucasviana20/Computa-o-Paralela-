@@ -1,3 +1,7 @@
+Nao foi possivel completar o fatorial multiprocessado, conseguimos usar o fork e gerar 2 processos que calculam parte do fatorial.
+faltou conseguir compartilhar memoria entre os processos para juntar os dois resultados.
+o programa a seguir devolve dois resultados que multiplicados sao o fatorial correto do numero inserido pelo Usuario.
+
 #include <iostream>
 #include <sys/types.h>
 #include <unistd.h>
