@@ -34,7 +34,7 @@ void *Pth_mat_vect(void* rank)
 
 int main()
 {
-    pthread_t thread_handles[3];
+    pthread_t thread_handles[thread_count];
     
 	for (pthread_t thread = 0 ; thread < thread_count ; thread++)
 	{
