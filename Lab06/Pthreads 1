@@ -46,6 +46,27 @@ int main()
 	    pthread_join(thread_handles[thread] , NULL);
 	}
 	
+	std::cout << "Matriz A: \n";
+	
+	for(int i = 0 ; i < 6 ; i++)
+	{
+	    for(int j = 0 ; j < 6 ; j++)
+	    {
+	        std::cout << A[i][j] << " ";
+	    }
+	    
+	    std::cout << "\n";
+	}
+	
+	std::cout << "\nVetor X: ";
+	
+	for(int i = 0 ; i < 6 ; i++)
+	{
+	    std::cout << x[i] << " ";
+	}
+	
+	std::cout << "\n\nVetor A * X: ";
+	
 	for(int i = 0 ; i < 6 ; i++)
 	{
 	    std::cout << y[i] << " ";
