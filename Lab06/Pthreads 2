@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int thread_count = 10 , n = 300;
+int thread_count = 100 , n = 1000;
 
 double sum = 0;
 
