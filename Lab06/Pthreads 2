@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int thread_count = 3 , n = 12;
+int thread_count = 10 , n = 300;
 
 double sum = 0;
 
@@ -41,7 +41,7 @@ void *Thread_sum(void* rank)
 
 int main()
 {
-    pthread_t thread_handles[3];
+    pthread_t thread_handles[thread_count];
     
 	for (pthread_t thread = 0 ; thread < thread_count ; thread++)
 	{
