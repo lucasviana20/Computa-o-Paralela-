@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -20,12 +21,14 @@ int main()
     
     int Iteracoes = 10000;
     
+    cout.precision(15);
+    
     for(double i = 1 ; i < Iteracoes + 1 ; i++)
     {
         Soma = Soma + (1/Fatorial(i));
     }
     
-    cout << Soma;
+    cout << fixed << Soma << endl;
     
     return 0;
 }
