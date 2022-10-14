@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -21,7 +20,7 @@ int main()
     
     int Iteracoes = 10000;
     
-    cout.precision(15);
+    cout.precision(16);
     
     for(double i = 1 ; i < Iteracoes + 1 ; i++)
     {
