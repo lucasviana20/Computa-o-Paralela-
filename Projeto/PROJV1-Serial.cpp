@@ -16,13 +16,13 @@ double Fatorial(int Num)
 
 int main()
 {
-    double Soma = 1;
+    double Soma = 0;
     
-    int Iteracoes = 10000;
+    int Iteracoes = 1000000;
     
     cout.precision(16);
     
-    for(double i = 1 ; i < Iteracoes + 1 ; i++)
+    for(double i = 0 ; i < Iteracoes + 1 ; i++)
     {
         Soma = Soma + (1/Fatorial(i));
     }
