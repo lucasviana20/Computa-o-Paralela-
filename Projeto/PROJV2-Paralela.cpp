@@ -21,19 +21,13 @@ double Fatorial(int Num)
     return Fat;
 }
 
-void Thread_Soma(void rank)
+void *Thread_Soma(void* rank)
 {
     long my_rank = (long) rank;
 	
 	long long i;
 	
-	long long my_n = Iteracoes / thread_count;
-	
-	long long my_first_i = my_n * my_rank;
-	
-	long long my_last_i = my_first_i + my_n;
-	
-	for(i = my_first_i ; i < my_last_i ; i++)
+	for(i = my_rank ; i < Iteracoes + 1 ; i = i + 2)
     {
         Soma = Soma + (1/Fatorial(i));
     }
@@ -57,6 +51,8 @@ int main()
 	}
     
     cout.precision(16);
+    
+    cout << Soma;
     
     return 0;
 }
