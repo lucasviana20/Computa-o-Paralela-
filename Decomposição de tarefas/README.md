@@ -15,4 +15,4 @@ Caso tivéssemos infinitos processadores ao nosso dispor, poderíamos calcular o
 Considerando que o Número de iterações seja n, podemos paralelizar as n tarefas.  
 
 # Qual é o paralelismo médio?
-?
+12 / 8 = 1.5 Unidades de tempo
