@@ -9,7 +9,7 @@
 
 # Quantos processadores são necessários para se conseguir o tempo mínimo de execução?
 
-Caso tivéssemos infinitos processadores ao nosso dispor, poderíamos calcular o fatorial de todos os números de uma vez só, com isso quem levaria mais tempo seria da thread com o maior número, portanto o tempo de execução seria O(n). 
+Caso tivéssemos infinitos processadores ao nosso dispor, poderíamos calcular o fatorial de todos os números de uma vez só, com isso o processador que levaria mais tempo seria o que estivesse calculando o maior número, portanto o tempo de execução seria O(n). 
 
 # Qual é o grau máximo de concorrência?
 ?
