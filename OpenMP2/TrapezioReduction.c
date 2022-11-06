@@ -12,15 +12,17 @@ double f(double x)
 
 int main(int argc, char* argv[])
 {
-    double global_result = 0.0 , a = 7 , b = 4;
+    double global_result = 0.0 , a = 15 , b = 2;
     
-    int n = 15, thread_count;
+    int n = 100, thread_count;
     
     thread_count = strtol(argv[1], NULL, 10);
     
     #pragma omp parallel num_threads (thread_count)
     
-    Trap(a, b, n, &global_result);
+    #pragma omp for reduction(+: *global_result_p)
+    
+        Trap(a, b, n, &global_result);
     
     printf("With n = %d trapezoids, our estimate\n", n); 
     
@@ -53,8 +55,6 @@ void Trap(double a, double b, int n , double* global_result_p)
     }
     
     my_result = my_result * h;
-    
-    #pragma omp critical 
     
     *global_result_p += my_result;
 }
