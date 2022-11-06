@@ -12,9 +12,9 @@ double f(double x)
 
 int main(int argc, char* argv[])
 {
-    double global_result = 0.0 , a = 7 , b = 4;
+    double global_result = 0.0 , a = 15 , b = 2;
     
-    int n = 15, thread_count;
+    int n = 100, thread_count;
     
     thread_count = strtol(argv[1], NULL, 10);
     
