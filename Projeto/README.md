@@ -10,7 +10,7 @@ Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hard
 
 # Projeto V3 Condicao de Corrida
 
-Ocorreu um erro onde não tenho permissão para acessar as instancias 
+Ocorreu um erro onde não tenho permissão para acessar as instancias(mesmo usando apenas instancias de 1 e 2 núcleos) 
 ![image](https://user-images.githubusercontent.com/74374381/200972881-b47fbe36-2f12-424f-9ee7-285275733749.png)
 
 Depois disso tentei criar novas instancias e mesmo assim não tenho permissão 
