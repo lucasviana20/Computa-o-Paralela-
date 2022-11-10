@@ -19,7 +19,7 @@ Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hard
 
 # Projeto V3 Versão Paralela com programação dinamica e OpenMP
 
-1 bilhão de Iterações, tempo Medio de execução = 1m 2,04s
+1 bilhão de Iterações,2 Núcleos, tempo Medio de execução = 1m 2,04s
 
 ![image](https://user-images.githubusercontent.com/74374381/200982173-da3dad02-33f3-4ce7-9132-1210c6356cac.png)
 ![image](https://user-images.githubusercontent.com/74374381/200982379-4bda08e5-4bf7-4682-a08e-1b2595cd085a.png)
