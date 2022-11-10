@@ -8,12 +8,20 @@ Executando o código localizado no arquivo PROJV1-Serial.cpp na AWS com o hardwa
 Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hardware t3.micro
 ![image](https://user-images.githubusercontent.com/74461314/196829457-d9901cea-0661-4f37-9285-c0aa41fc29c5.png)
 
-# Projeto V3 Condicao de Corrida
+# Versão Serial com programação dinamica  
 
-Ocorreu um erro onde não tenho permissão para acessar as instancias(mesmo usando apenas instancias de 1 e 2 núcleos) 
-![image](https://user-images.githubusercontent.com/74374381/200972881-b47fbe36-2f12-424f-9ee7-285275733749.png)
+1 bilhão de Iterações
 
-Depois disso tentei criar novas instancias e mesmo assim não tenho permissão 
-![image](https://user-images.githubusercontent.com/74374381/200972852-ecca1830-32da-4182-8cb1-30e35f2b1ffc.png)
+![image](https://user-images.githubusercontent.com/74374381/200981308-01c66f06-4388-4540-8da7-288d95bc3898.png)
+
+# Projeto V3 Versão Paralela com programação dinamica e OpenMP
+
+1 bilhão de Iterações
+
+![image](https://user-images.githubusercontent.com/74374381/200982173-da3dad02-33f3-4ce7-9132-1210c6356cac.png)
+![image](https://user-images.githubusercontent.com/74374381/200982379-4bda08e5-4bf7-4682-a08e-1b2595cd085a.png)
+![image](https://user-images.githubusercontent.com/74374381/200982536-b73f36c1-6a2d-42dc-a167-bb83aa029152.png)
+
+
 
 
