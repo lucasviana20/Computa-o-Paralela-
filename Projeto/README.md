@@ -25,6 +25,7 @@ Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hard
 ![image](https://user-images.githubusercontent.com/74374381/200982379-4bda08e5-4bf7-4682-a08e-1b2595cd085a.png)
 ![image](https://user-images.githubusercontent.com/74374381/200982536-b73f36c1-6a2d-42dc-a167-bb83aa029152.png)
 
+Speedup em relação ao Projeto V3 Versão Serial: 1m 19,67s / 1m 2,04s = 1.17
 
 
 
