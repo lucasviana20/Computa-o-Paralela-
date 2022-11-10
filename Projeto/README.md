@@ -12,7 +12,7 @@ Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hard
 
 1 bilhão de Iterações
 
-![image](https://user-images.githubusercontent.com/74374381/200981308-01c66f06-4388-4540-8da7-288d95bc3898.png)
+![image](https://user-images.githubusercontent.com/74374381/200983805-faba2c71-9c37-496d-940b-3bdd91491c6b.png)
 
 # Projeto V3 Versão Paralela com programação dinamica e OpenMP
 
