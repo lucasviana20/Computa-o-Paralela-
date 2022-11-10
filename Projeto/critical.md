@@ -1,1 +1,1 @@
-Teste
+Antes dessa entrega nós não realizavamos o controle de acesso à região crítica para a variável global compartilhada, a partir de agora usaremos a diretiva pragma omp critical para realizar essa função. 
