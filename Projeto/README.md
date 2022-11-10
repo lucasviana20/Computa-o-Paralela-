@@ -8,11 +8,14 @@ Executando o código localizado no arquivo PROJV1-Serial.cpp na AWS com o hardwa
 Executando o código localizado no arquivo PROJV2-Paralela.cpp na AWS com o hardware t3.micro
 ![image](https://user-images.githubusercontent.com/74461314/196829457-d9901cea-0661-4f37-9285-c0aa41fc29c5.png)
 
-# Versão Serial com programação dinamica  
+# Projeto V3 Versão Serial com programação dinamica  
 
 1 bilhão de Iterações
 
 ![image](https://user-images.githubusercontent.com/74374381/200983805-faba2c71-9c37-496d-940b-3bdd91491c6b.png)
+![image](https://user-images.githubusercontent.com/74374381/200984143-67ba7beb-6eb9-4e64-97c6-6080a90c20c0.png)
+![image](https://user-images.githubusercontent.com/74374381/200984325-55340a0c-e54b-485b-9913-8d026fd6f4fb.png)
+
 
 # Projeto V3 Versão Paralela com programação dinamica e OpenMP
 
