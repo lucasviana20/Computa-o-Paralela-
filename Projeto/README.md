@@ -27,5 +27,10 @@ Speedup em relação ao Projeto V3 Versão Serial: 1m 19,67s / 1m 2,04s = 1.17
 ![image](https://user-images.githubusercontent.com/74374381/200982379-4bda08e5-4bf7-4682-a08e-1b2595cd085a.png)
 ![image](https://user-images.githubusercontent.com/74374381/200982536-b73f36c1-6a2d-42dc-a167-bb83aa029152.png)
 
+Grafico do speedup
+
+![image](https://user-images.githubusercontent.com/74374381/200991101-413c0b1c-7929-4137-843f-63e2338af601.png)
+
+
 
 
