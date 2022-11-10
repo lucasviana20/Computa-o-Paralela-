@@ -8,7 +8,7 @@ using namespace std;
 
 double Soma = 0 , ResultadoSalvo = 1;
 
-int Iteracoes = 1000000000 , thread_count = 2 , FatorialSalvo = 0;
+int Iteracoes = 1000000000 , thread_count = 1 , FatorialSalvo = 0;
 
 double Fatorial(int Num)
 {
