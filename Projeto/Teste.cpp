@@ -23,7 +23,7 @@ double Fatorial(int Num)
         Fat = Fat * i;
     }
     
-    #cout << "Escapou! " << Num << endl;
+    //cout << "Escapou! " << Num << endl;
     return Fat;
 }
 
