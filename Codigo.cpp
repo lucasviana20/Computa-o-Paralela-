@@ -32,6 +32,8 @@ double Thread_Soma(int Iteracoes)
 {
     double Soma_Local = 0 , Resultado = 0;
 	
+    int id_thread;
+	
     #pragma omp critical
     {
         int id_thread = ID;
