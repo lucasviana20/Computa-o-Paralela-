@@ -37,7 +37,6 @@ double Thread_Soma(int Iteracoes)
     #pragma omp critical
     {
         int id_thread = ID;
-        cout << "Thread ID: " << id_thread << endl;
         ID = ID + 1;
     }
     
