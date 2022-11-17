@@ -6,11 +6,7 @@
 
 using namespace std;
 
-double ResultadoSalvo = 1;
-
-int FatorialSalvo = 0;
-
-double Fatorial(int Num)
+double Fatorial(int Num , FatorialSalvo , ResultadoSalvo)
 {
     double Fat = 1;
     
@@ -30,24 +26,21 @@ double Fatorial(int Num)
 
 double Thread_Soma(int Iteracoes)
 {
-    double Soma_Local = 0 , Resultado = 0;
+    double Soma_Local = 0 , Resultado = 0 , Resultado_Fatorial_Salvo = 1;
     
-    int id_thread = omp_get_thread_num();
-    
-    int thread_count = omp_get_num_threads();
+    int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads() , Fatorial_Salvo = 0;
 	
 	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
-        Resultado = Fatorial(i);
+        Resultado = Fatorial(i, Fatorial_Salvo, Resultado_Fatorial_Salvo);
         
-        if(i % 7 == 0)
+        if(i % 3 == 0)
         {
             FatorialSalvo = i;
             
-            ResultadoSalvo = Resultado;
+            Resultado_Fatorial_Salvo = Resultado;
         }
         
-    
         Soma_Local = Soma_Local + (1/Resultado);
     }
 	
