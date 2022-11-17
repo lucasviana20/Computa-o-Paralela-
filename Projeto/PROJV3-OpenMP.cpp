@@ -6,9 +6,9 @@
 
 using namespace std;
 
-double Soma = 0 , ResultadoSalvo = 1;
+double ResultadoSalvo = 1;
 
-int Iteracoes = 1000000000 , thread_count = 2 , FatorialSalvo = 0;
+int FatorialSalvo = 0;
 
 double Fatorial(int Num)
 {
@@ -28,15 +28,15 @@ double Fatorial(int Num)
     return Fat;
 }
 
-void *Thread_Soma(void *rank)
+double Thread_Soma(int Iteracoes)
 {
-    double Resultado = 0;
+    double Soma_Local = 0 , Resultado = 0;
     
-    long my_rank = (long) rank;
+    int id_thread = omp_get_thread_num();
+    
+    int thread_count = omp_get_num_threads();
 	
-	long long i;
-	
-	for(i = my_rank ; i < Iteracoes + 1 ; i = i + thread_count)
+	for(i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
         Resultado = Fatorial(i);
         
@@ -47,26 +47,25 @@ void *Thread_Soma(void *rank)
             ResultadoSalvo = Resultado;
         }
         
-        #pragma omp critical
-        Soma = Soma + (1/Resultado);
+    
+        Soma_Local = Soma_Local + (1/Resultado);
     }
 	
-	return NULL;
+	return Soma_Local;
 }
 
-int main()
+int main(int  argc, char *argv[])
 {
-    pthread_t thread_handles[thread_count];
-    
-	for (pthread_t thread = 0 ; thread < thread_count ; thread++)
-	{
-	    pthread_create(&thread_handles[thread] , NULL , Thread_Soma , (void*) thread);
-	}
+	double Soma = 0;
 	
-	for (pthread_t thread = 0 ; thread < thread_count ; thread++)
-	{
-	    pthread_join(thread_handles[thread] , NULL);
-	}
+	int Iteracoes = atoi(argv[1]);
+	
+    int thread_count = atoi(argv[2]);
+    
+    #pragma omp parallel num_threads(qtd_thread) reduction(+: Soma)
+    {
+        Soma = Soma + Thread_Soma(Iteracoes);
+    }
     
     cout.precision(16);
     
