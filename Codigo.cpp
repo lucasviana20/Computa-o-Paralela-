@@ -34,7 +34,8 @@ double Thread_Soma(int Iteracoes)
     
     int id_thread = omp_get_thread_num();
 	
-	cout << "Thread id: " << id_thread;
+    #pragma omp critical
+    cout << "Thread id: " << id_thread;
     
     int thread_count = omp_get_num_threads();
 	
