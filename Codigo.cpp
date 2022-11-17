@@ -8,7 +8,7 @@ using namespace std;
 
 double ResultadoSalvo = 1;
 
-int FatorialSalvo = 0 , ID = 0;
+int FatorialSalvo = 0;
 
 double Fatorial(int Num)
 {
@@ -24,25 +24,19 @@ double Fatorial(int Num)
         Fat = Fat * i;
     }
     
-    //cout << "Escapou! " << Num << endl;
+    cout << "Escapou! " << Num << endl;
     return Fat;
 }
 
 double Thread_Soma(int Iteracoes)
 {
     double Soma_Local = 0 , Resultado = 0;
-	
-    int id_thread;
-	
-    #pragma omp critical
-    {
-        int id_thread = ID;
-        ID = ID + 1;
-    }
+    
+    int id_thread = omp_get_thread_num();
     
     int thread_count = omp_get_num_threads();
 	
-	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
+	for(i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
         Resultado = Fatorial(i);
         
@@ -68,7 +62,7 @@ int main(int  argc, char *argv[])
 	
     int thread_count = atoi(argv[2]);
     
-    #pragma omp parallel num_threads(thread_count) reduction(+: Soma)
+    #pragma omp parallel num_threads(qtd_thread) reduction(+: Soma)
     {
         Soma = Soma + Thread_Soma(Iteracoes);
     }
