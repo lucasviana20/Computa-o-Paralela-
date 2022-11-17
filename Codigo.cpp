@@ -36,7 +36,7 @@ double Thread_Soma(int Iteracoes)
         
         if(i % 3 == 0)
         {
-            FatorialSalvo = i;
+            Fatorial_Salvo = i;
             
             Resultado_Fatorial_Salvo = Resultado;
         }
