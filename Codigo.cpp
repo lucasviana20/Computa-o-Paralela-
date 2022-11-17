@@ -8,7 +8,7 @@ using namespace std;
 
 double ResultadoSalvo = 1;
 
-int FatorialSalvo = 0;
+int FatorialSalvo = 0 , ID = 0;
 
 double Fatorial(int Num)
 {
@@ -31,11 +31,15 @@ double Fatorial(int Num)
 double Thread_Soma(int Iteracoes)
 {
     double Soma_Local = 0 , Resultado = 0;
-    
-    int id_thread = omp_get_thread_num();
 	
     #pragma omp critical
-    cout << "Thread id: " << id_thread;
+    {
+    int id_thread = ID;
+    cout << "Thread ID: " << id_thread << endl;
+    ID = ID + 1;
+    }
+    
+    
     
     int thread_count = omp_get_num_threads();
 	
