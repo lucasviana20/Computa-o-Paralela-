@@ -24,7 +24,7 @@ double Fatorial(int Num)
         Fat = Fat * i;
     }
     
-    cout << "Escapou! " << Num << endl;
+    //cout << "Escapou! " << Num << endl;
     return Fat;
 }
 
@@ -42,7 +42,7 @@ double Thread_Soma(int Iteracoes)
     {
         Resultado = Fatorial(i);
         
-        if(i % 2 == 0)
+        if(i % 7 == 0)
         {
             FatorialSalvo = i;
             
