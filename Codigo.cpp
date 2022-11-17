@@ -36,7 +36,7 @@ double Thread_Soma(int Iteracoes)
     
     int thread_count = omp_get_num_threads();
 	
-	for(i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
+	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
         Resultado = Fatorial(i);
         
@@ -62,7 +62,7 @@ int main(int  argc, char *argv[])
 	
     int thread_count = atoi(argv[2]);
     
-    #pragma omp parallel num_threads(qtd_thread) reduction(+: Soma)
+    #pragma omp parallel num_threads(thread_count) reduction(+: Soma)
     {
         Soma = Soma + Thread_Soma(Iteracoes);
     }
