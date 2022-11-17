@@ -1,6 +1,14 @@
 #include <iostream>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <omp.h>
 
 using namespace std;
+
+double ResultadoSalvo = 1;
+
+int FatorialSalvo = 0;
 
 double Fatorial(int Num)
 {
@@ -8,28 +16,60 @@ double Fatorial(int Num)
     
     for(double i = Num ; i > 0 ; i--)
     {
+        if(FatorialSalvo == i)
+        {
+            return Fat * ResultadoSalvo;
+        }
+        
         Fat = Fat * i;
     }
     
-    cout << "Fatorial de: " << Num << ": " << Fat << endl;
-	
+    cout << "Escapou! " << Num << endl;
     return Fat;
 }
 
-int main()
+double Thread_Soma(int Iteracoes)
 {
-    double Soma = 0;
+    double Soma_Local = 0 , Resultado = 0;
     
-    int Iteracoes = 200;
+    int id_thread = omp_get_thread_num();
+    
+    int thread_count = omp_get_num_threads();
+	
+	for(i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
+    {
+        Resultado = Fatorial(i);
+        
+        if(i % 7 == 0)
+        {
+            FatorialSalvo = i;
+            
+            ResultadoSalvo = Resultado;
+        }
+        
+    
+        Soma_Local = Soma_Local + (1/Resultado);
+    }
+	
+	return Soma_Local;
+}
+
+int main(int  argc, char *argv[])
+{
+	double Soma = 0;
+	
+	int Iteracoes = atoi(argv[1]);
+	
+    int thread_count = atoi(argv[2]);
+    
+    #pragma omp parallel num_threads(qtd_thread) reduction(+: Soma)
+    {
+        Soma = Soma + Thread_Soma(Iteracoes);
+    }
     
     cout.precision(16);
     
-    for(double i = 0 ; i < Iteracoes + 1 ; i++)
-    {
-        Soma = Soma + (1/Fatorial(i));
-    }
-    
-    cout << fixed << Soma << endl;
+    cout << Soma;
     
     return 0;
 }
