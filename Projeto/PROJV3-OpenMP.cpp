@@ -8,7 +8,7 @@ using namespace std;
 
 double Soma = 0 , ResultadoSalvo = 1;
 
-int Iteracoes = 1000000000 , thread_count = 2 , FatorialSalvo = 0;
+int Iteracoes = 1000000000 , thread_count = 1 , FatorialSalvo = 0;
 
 double Fatorial(int Num)
 {
@@ -24,7 +24,7 @@ double Fatorial(int Num)
         Fat = Fat * i;
     }
     
-    //cout << "Escapou! " << Num << endl;
+    cout << "Escapou! " << Num << endl;
     return Fat;
 }
 
@@ -47,7 +47,7 @@ void *Thread_Soma(void *rank)
             ResultadoSalvo = Resultado;
         }
         
-        //#pragma omp critical
+        #pragma omp critical
         Soma = Soma + (1/Resultado);
     }
 	
