@@ -19,8 +19,7 @@ double Fatorial(int Num , int FatorialSalvo, double ResultadoSalvo)
         
         Fat = Fat * i;
     }
-    
-    cout << "Escapou! " << Num << endl;
+	
     return Fat;
 }
 
