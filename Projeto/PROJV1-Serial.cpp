@@ -2,11 +2,11 @@
 
 using namespace std;
 
-double Fatorial(int Num)
+long double Fatorial(int Num)
 {
-    double Fat = 1;
+    long double Fat = 1;
     
-    for(double i = Num ; i > 0 ; i--)
+    for(long double i = Num ; i > 0 ; i--)
     {
         Fat = Fat * i;
     }
@@ -16,13 +16,13 @@ double Fatorial(int Num)
 
 int main()
 {
-    double Soma = 0;
+    long double Soma = 0;
     
     int Iteracoes = 100000;
     
     cout.precision(20);
     
-    for(double i = 0 ; i < Iteracoes + 1 ; i++)
+    for(long double i = 0 ; i < Iteracoes + 1 ; i++)
     {
         Soma = Soma + (1/Fatorial(i));
     }
