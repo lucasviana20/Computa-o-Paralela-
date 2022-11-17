@@ -40,7 +40,7 @@ double Thread_Soma(int Iteracoes)
     {
         Resultado = Fatorial(i);
         
-        if(i % 8 == 0)
+        if(i % 2 == 0)
         {
             FatorialSalvo = i;
             
