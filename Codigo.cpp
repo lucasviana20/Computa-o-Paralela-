@@ -6,7 +6,7 @@
 
 using namespace std;
 
-double Fatorial(int Num , FatorialSalvo , ResultadoSalvo)
+double Fatorial(int Num , int FatorialSalvo, double ResultadoSalvo)
 {
     double Fat = 1;
     
