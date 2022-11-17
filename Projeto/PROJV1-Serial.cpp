@@ -18,7 +18,7 @@ int main()
 {
     double Soma = 0;
     
-    int Iteracoes = 1000000;
+    int Iteracoes = 100000;
     
     cout.precision(20);
     
