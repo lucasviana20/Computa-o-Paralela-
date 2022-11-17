@@ -20,7 +20,7 @@ int main()
     
     int Iteracoes = 1000000;
     
-    cout.precision(16);
+    cout.precision(20);
     
     for(double i = 0 ; i < Iteracoes + 1 ; i++)
     {
