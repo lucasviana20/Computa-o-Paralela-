@@ -13,7 +13,7 @@ int main(){
   //mpf_mul_ui(r,r,10); /* r = r * 10 */
 
   printf (" r = ");
-  mpf_out_str(stdout,10,r);
+  mpf_out_str(stdout,10,2,r);
   printf ("\n");
 
 }
