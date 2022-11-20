@@ -17,6 +17,10 @@ class GrandesNumeros
         mpf_t m_Resultado;
 };
 
+GrandesNumeros Euler;
+mpf_init2(Euler.m_Resultado, 256);
+mpf_set_str(Euler.m_Resultado, "0", 10);
+
 GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 {
     GrandesNumeros Auxiliar;
@@ -37,7 +41,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
     return Auxiliar;
 }
 
-GrandesNumeros Thread_Soma(int Iteracoes)
+void Thread_Soma(int Iteracoes)
 {
     GrandesNumeros Numero1;
     GrandesNumeros Numero2;
@@ -65,7 +69,7 @@ GrandesNumeros Thread_Soma(int Iteracoes)
         mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero2.m_Resultado);
     }
 	
-	return Soma;
+	mpf_add(Euler.m_Resultado, Euler.m_Resultado, Soma.m_Resultado);
 }
 
 int main(int  argc, char *argv[])
@@ -78,12 +82,12 @@ int main(int  argc, char *argv[])
 	
         int thread_count = atoi(argv[2]);
     
-    //#pragma omp parallel num_threads(thread_count) reduction(+: Soma)
-    //{
-       // mpf_add(Euler.m_Resultado, Thread_Soma.m_Resultado, Numero2.m_Resultado);
-    //}
+    #pragma omp parallel num_threads(thread_count) 
+    {
+        Thread_Soma(Iteracoes);
+    }
     
-    gmp_printf("e = %.75Ff\n", Thread_Soma(1000000).m_Resultado);
+    gmp_printf("e = %.75Ff\n", Euler.m_Resultado);
     
     return 0;
 }
