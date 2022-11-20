@@ -2,18 +2,16 @@
 #include <stdio.h>
 #include <assert.h>
 
-int main(){
-
-  /* The basic operation is to initialize the number */
-  /* 1. Initialize the number r */
+int main()
+{
   mpf_t r;
   mpf_init2 (r, 256);
-  mpf_set_d(r,0.123456789123456789);   /*r = 15 now */
-
-  //mpf_mul_ui(r,r,10); /* r = r * 10 */
+  mpf_set_str(r, "0.1111111111111111111111111111111111111111", 10); 
+  mpf_add(r,r,r);
+  mpf_add(r,r,r);
 
   printf (" r = ");
-  mpf_out_str(stdout,10,20,r);
+  gmp_printf("%.40Ff\n", r);
   printf ("\n");
 
 }
