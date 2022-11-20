@@ -83,7 +83,7 @@ int main(int  argc, char *argv[])
         mpf_add(Euler.m_Resultado, Euler.m_Resultado,Thread_Soma(Iteracoes).m_Resultado);
     }
     
-    gmp_printf("e = %.75Ff\n", Euler.m_Resultado);
+    gmp_printf("e = %.78Ff\n", Euler.m_Resultado);
     
     return 0;
 }
