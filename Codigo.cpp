@@ -3,25 +3,38 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <omp.h>
+#include <gmp.h>
+#include <assert.h>
 
 using namespace std;
 
-double Fatorial(int Num , int FatorialSalvo, double ResultadoSalvo)
+class GrandesNumeros
 {
-    double Fat = 1;
+    public:
+	
+	int m_Numero;
     
-    for(double i = Num ; i > 0 ; i--)
+        mpf_t m_Resultado;
+};
+
+GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
+{
+    GrandesNumeros Auxiliar;
+    mpf_init2(Auxiliar.m_Resultado, 256);
+    mpf_set_str(Auxiliar.m_Resultado, "1", 10);
+	
+    for(int i = Num ; i > 0 ; i--)
     {
-        if(FatorialSalvo == i)
+        if(Numero.m_Numero == i)
         {
-            return Fat * ResultadoSalvo;
+	    mpf_mul(Auxiliar.m_Resultado, Auxiliar.m_Resultado, Numero.m_Resultado);
+            return Auxiliar;
         }
         
-        Fat = Fat * i;
+        mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
     }
     
-    cout << "Escapou! " << Num << endl;
-    return Fat;
+    return Auxiliar;
 }
 
 double Thread_Soma(int Iteracoes)
@@ -63,6 +76,46 @@ int main(int  argc, char *argv[])
     cout.precision(16);
     
     cout << Soma;
+    
+    return 0;
+}
+
+
+GrandesNumeros Fatorial(int Num)
+{
+    GrandesNumeros Numero;
+    mpf_init2(Numero.m_Numero, 256);
+    mpf_set_str(Numero.m_Numero, "1", 10);
+    
+    for(int i = 1 ; i < Num + 1 ; i++)
+    {
+        mpf_mul_ui(Numero.m_Numero, Numero.m_Numero, i);
+    }
+    
+    return Numero;
+}
+
+int main()
+{
+    GrandesNumeros Numero1;
+    GrandesNumeros Numero2;
+    GrandesNumeros Soma;
+    
+    mpf_init2(Numero2.m_Numero, 256);
+    mpf_set_str(Numero2.m_Numero, "0", 10);
+    
+    mpf_init2(Soma.m_Numero, 256);
+    mpf_set_str(Soma.m_Numero, "0", 10);
+    
+  
+    for(int i = 0 ; i < 1000 + 1 ; i++)
+    {
+        Numero1 = Fatorial(i);
+        mpf_ui_div(Numero2.m_Numero, 1, Numero1.m_Numero);
+        mpf_add(Soma.m_Numero, Soma.m_Numero, Numero2.m_Numero);
+    }
+    
+    gmp_printf("e= %.75Ff\n", Soma.m_Numero);
     
     return 0;
 }
