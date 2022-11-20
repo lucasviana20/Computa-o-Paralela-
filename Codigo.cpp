@@ -54,9 +54,9 @@ GrandesNumeros Thread_Soma(int Iteracoes)
     mpf_set_str(Numero3.m_Resultado, "0", 10);
     Numero3.m_Numero = 0;
     
-    //int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads();
+    int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads();
 	
-	for(int i = 0 ; i < Iteracoes + 1 ; i = i + 1)
+	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
         Numero1 = Fatorial(i, Numero3);
         Numero3 = Numero1;
@@ -74,9 +74,9 @@ int main(int  argc, char *argv[])
 	mpf_init2(Euler.m_Resultado, 256);
     mpf_set_str(Euler.m_Resultado, "0", 10);
 	
-	//int Iteracoes = atoi(argv[1]);
+	int Iteracoes = atoi(argv[1]);
 	
-        //int thread_count = atoi(argv[2]);
+        int thread_count = atoi(argv[2]);
     
     //#pragma omp parallel num_threads(thread_count) reduction(+: Soma)
     //{
