@@ -37,85 +37,53 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
     return Auxiliar;
 }
 
-double Thread_Soma(int Iteracoes)
+GrandesNumeros Thread_Soma(int Iteracoes)
 {
-    double Soma_Local = 0 , Resultado = 0 , Resultado_Fatorial_Salvo = 1;
+    GrandesNumeros Numero1;
+    GrandesNumeros Numero2;
+    GrandesNumeros Numero3;
+    GrandesNumeros Soma;
     
-    int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads() , Fatorial_Salvo = 0;
+    mpf_init2(Numero2.m_Resultado, 256);
+    mpf_set_str(Numero2.m_Resultado, "0", 10);
+    
+    mpf_init2(Soma.m_Resultado, 256);
+    mpf_set_str(Soma.m_Resultado, "0", 10);
+    
+    mpf_init2(Numero3.m_Resultado, 256);
+    mpf_set_str(Numero3.m_Resultado, "0", 10);
+    Numero3.m_Numero = 0;
+    
+    //int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads();
 	
-	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
+	for(int i = 0 ; i < Iteracoes + 1 ; i = i + 1)
     {
-        Resultado = Fatorial(i, Fatorial_Salvo, Resultado_Fatorial_Salvo);
-        
-        if(i % 3 == 0)
-        {
-            Fatorial_Salvo = i;
-            
-            Resultado_Fatorial_Salvo = Resultado;
-        }
-        
-        Soma_Local = Soma_Local + (1/Resultado);
+        Numero1 = Fatorial(i, Numero3);
+        Numero3 = Numero1;
+        Numero3.m_Numero = i;
+        mpf_ui_div(Numero2.m_Resultado, 1, Numero1.m_Resultado);
+        mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero2.m_Resultado);
     }
 	
-	return Soma_Local;
+	return Soma;
 }
 
 int main(int  argc, char *argv[])
 {
-	double Soma = 0;
+	GrandesNumeros Euler;
+	mpf_init2(Euler.m_Resultado, 256);
+    mpf_set_str(Euler.m_Resultado, "0", 10);
 	
-	int Iteracoes = atoi(argv[1]);
+	//int Iteracoes = atoi(argv[1]);
 	
-    int thread_count = atoi(argv[2]);
+        //int thread_count = atoi(argv[2]);
     
-    #pragma omp parallel num_threads(thread_count) reduction(+: Soma)
-    {
-        Soma = Soma + Thread_Soma(Iteracoes);
-    }
+    //#pragma omp parallel num_threads(thread_count) reduction(+: Soma)
+    //{
+       // mpf_add(Euler.m_Resultado, Thread_Soma.m_Resultado, Numero2.m_Resultado);
+    //}
     
-    cout.precision(16);
-    
-    cout << Soma;
-    
-    return 0;
-}
-
-
-GrandesNumeros Fatorial(int Num)
-{
-    GrandesNumeros Numero;
-    mpf_init2(Numero.m_Numero, 256);
-    mpf_set_str(Numero.m_Numero, "1", 10);
-    
-    for(int i = 1 ; i < Num + 1 ; i++)
-    {
-        mpf_mul_ui(Numero.m_Numero, Numero.m_Numero, i);
-    }
-    
-    return Numero;
-}
-
-int main()
-{
-    GrandesNumeros Numero1;
-    GrandesNumeros Numero2;
-    GrandesNumeros Soma;
-    
-    mpf_init2(Numero2.m_Numero, 256);
-    mpf_set_str(Numero2.m_Numero, "0", 10);
-    
-    mpf_init2(Soma.m_Numero, 256);
-    mpf_set_str(Soma.m_Numero, "0", 10);
-    
-  
-    for(int i = 0 ; i < 1000 + 1 ; i++)
-    {
-        Numero1 = Fatorial(i);
-        mpf_ui_div(Numero2.m_Numero, 1, Numero1.m_Numero);
-        mpf_add(Soma.m_Numero, Soma.m_Numero, Numero2.m_Numero);
-    }
-    
-    gmp_printf("e= %.75Ff\n", Soma.m_Numero);
+    gmp_printf("e = %.75Ff\n", Thread_Soma(1000000).m_Resultado);
     
     return 0;
 }
