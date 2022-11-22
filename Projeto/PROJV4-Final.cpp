@@ -20,7 +20,7 @@ class GrandesNumeros
 GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 {
     GrandesNumeros Auxiliar;
-    mpf_init2(Auxiliar.m_Resultado, 130000);
+    mpf_init2(Auxiliar.m_Resultado, 262144);
     mpf_set_str(Auxiliar.m_Resultado, "1", 10);
 	
     for(int i = Num ; i > 0 ; i--)
@@ -44,13 +44,13 @@ GrandesNumeros Thread_Soma(int Iteracoes)
     GrandesNumeros Numero3;
     GrandesNumeros Soma;
     
-    mpf_init2(Numero2.m_Resultado, 130000);
+    mpf_init2(Numero2.m_Resultado, 262144);
     mpf_set_str(Numero2.m_Resultado, "0", 10);
     
-    mpf_init2(Soma.m_Resultado, 130000);
+    mpf_init2(Soma.m_Resultado, 262144);
     mpf_set_str(Soma.m_Resultado, "0", 10);
     
-    mpf_init2(Numero3.m_Resultado, 130000);
+    mpf_init2(Numero3.m_Resultado, 262144);
     mpf_set_str(Numero3.m_Resultado, "0", 10);
     Numero3.m_Numero = 0;
     
@@ -71,7 +71,7 @@ GrandesNumeros Thread_Soma(int Iteracoes)
 int main(int  argc, char *argv[])
 {
 	GrandesNumeros Euler;
-	mpf_init2(Euler.m_Resultado, 130000);
+	mpf_init2(Euler.m_Resultado, 262144);
     mpf_set_str(Euler.m_Resultado, "0", 10);
 	
 	int Iteracoes = atoi(argv[1]);
@@ -83,7 +83,7 @@ int main(int  argc, char *argv[])
         mpf_add(Euler.m_Resultado, Euler.m_Resultado,Thread_Soma(Iteracoes).m_Resultado);
     }
     
-    gmp_printf("e = %.38796Ff\n", Euler.m_Resultado);
+    gmp_printf("e = %.50000Ff\n", Euler.m_Resultado);
     
     return 0;
 }
