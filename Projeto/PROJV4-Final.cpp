@@ -37,6 +37,8 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 	
     mpf_swap(Numero.m_Resultado, Auxiliar);
 	
+    mpf_clear (Auxiliar);
+	
     return Numero;
 }
 
