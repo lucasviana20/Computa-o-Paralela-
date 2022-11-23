@@ -19,7 +19,7 @@ class GrandesNumeros
 
 GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 {
-    GrandesNumeros Auxiliar;
+    GrandesNumeros Auxiliar = new GrandesNumeros;
     mpf_init2(Auxiliar.m_Resultado,  1500000);
     mpf_set_str(Auxiliar.m_Resultado, "1", 10);
 	
@@ -35,7 +35,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
     }
 	
     Numero = Auxiliar;
-    delete *Auxiliar;
+    delete Auxiliar;
 	
     return Numero;
 }
