@@ -17,7 +17,7 @@ class GrandesNumeros
         mpf_t m_Resultado;
 };
 
-void Fatorial(int Num , GrandesNumeros Numero)
+GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 {
     GrandesNumeros Auxiliar;
     mpf_init2(Auxiliar.m_Resultado,  1500000);
@@ -28,21 +28,20 @@ void Fatorial(int Num , GrandesNumeros Numero)
         if(Numero.m_Numero == i)
         {
 	    mpf_mul(Auxiliar.m_Resultado, Auxiliar.m_Resultado, Numero.m_Resultado);
-            break;
+            return Auxiliar;
         }
         
         mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
     }
-	
-    Numero = Auxiliar;
-	
-    //return Auxiliar;
+    
+    return Auxiliar;
 }
 
 GrandesNumeros Thread_Soma(int Iteracoes)
 {
     GrandesNumeros Numero1;
     GrandesNumeros Numero2;
+    GrandesNumeros Numero3;
     GrandesNumeros Soma;
     
     mpf_init2(Numero2.m_Resultado, 1500000);
@@ -51,16 +50,17 @@ GrandesNumeros Thread_Soma(int Iteracoes)
     mpf_init2(Soma.m_Resultado, 1500000);
     mpf_set_str(Soma.m_Resultado, "0", 10);
     
-    mpf_init2(Numero1.m_Resultado, 1500000);
-    mpf_set_str(Numero1.m_Resultado, "0", 10);
-    Numero1.m_Numero = 0;
+    mpf_init2(Numero3.m_Resultado, 1500000);
+    mpf_set_str(Numero3.m_Resultado, "0", 10);
+    Numero3.m_Numero = 0;
     
     int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads();
 	
 	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
-        Fatorial(i, Numero1);
-        Numero1.m_Numero = i;
+        Numero1 = Fatorial(i, Numero3);
+        Numero3 = Numero1;
+        Numero3.m_Numero = i;
         mpf_ui_div(Numero2.m_Resultado, 1, Numero1.m_Resultado);
         mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero2.m_Resultado);
     }
