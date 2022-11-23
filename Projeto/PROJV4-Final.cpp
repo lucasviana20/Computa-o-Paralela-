@@ -19,10 +19,6 @@ class GrandesNumeros
 
 GrandesNumeros Fatorial(int Num , GrandesNumeros Numero, GrandesNumeros Auxiliar)
 {
-    GrandesNumeros Auxiliar;
-    mpf_init2(Auxiliar.m_Resultado,  1500000);
-    mpf_set_str(Auxiliar.m_Resultado, "1", 10);
-	
     for(int i = Num ; i > 0 ; i--)
     {
         if(Numero.m_Numero == i)
