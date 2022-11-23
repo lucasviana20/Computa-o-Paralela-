@@ -26,6 +26,7 @@ GrandesNumeros Fatorial(int Num)
 int main()
 {
     FILE* Arquivo;
+    char fil[] = "Euler.txt";
     GrandesNumeros Numero1;
     GrandesNumeros Numero2;
     GrandesNumeros Soma;
@@ -46,8 +47,7 @@ int main()
     
     gmp_printf("e= %.75Ff\n", Soma.m_Numero);
     
-    Arquivo = fopen("Euler.txt", "w");
-    mpf_mul_ui(Soma.m_Numero, Soma.m_Numero, 10);
+    Arquivo = fopen(fil, "w");
     mpf_out_str(Arquivo, 10, 0, Soma.m_Numero);
     fclose(Arquivo);
     
