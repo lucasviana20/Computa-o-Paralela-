@@ -28,7 +28,7 @@ void Fatorial(int Num , GrandesNumeros Numero)
         if(Numero.m_Numero == i)
         {
 	    mpf_mul(Auxiliar.m_Resultado, Auxiliar.m_Resultado, Numero.m_Resultado);
-            return Auxiliar;
+            break;
         }
         
         mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
