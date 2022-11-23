@@ -29,7 +29,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
         {
 	    mpf_mul(Auxiliar, Auxiliar, Numero.m_Resultado);
 		
-	    Numero.m_Resultado = Auxiliar;
+	    mpf_swap(Numero.m_Resultado, Auxiliar);
 		
             return Numero;
         }
@@ -37,7 +37,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
         mpf_mul_ui(Auxiliar, Auxiliar, i);
     }
 	
-    Numero.m_Resultado = Auxiliar;
+    mpf_swap(Numero.m_Resultado, Auxiliar);
 	
     return Numero;
 }
