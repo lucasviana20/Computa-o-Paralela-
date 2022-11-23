@@ -33,11 +33,8 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
         
         mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
     }
-	
-    Numero = Auxiliar;
-    mpf_clear (Auxiliar.m_Resultado);
     
-    return Numero;
+    return Auxiliar;
 }
 
 GrandesNumeros Thread_Soma(int Iteracoes)
