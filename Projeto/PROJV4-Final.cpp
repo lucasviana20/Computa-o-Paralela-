@@ -17,7 +17,7 @@ class GrandesNumeros
         mpf_t m_Resultado;
 };
 
-GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
+GrandesNumeros Fatorial(int Num , GrandesNumeros Numero, GrandesNumeros Auxiliar)
 {
     GrandesNumeros Auxiliar;
     mpf_init2(Auxiliar.m_Resultado,  1500000);
@@ -43,6 +43,10 @@ GrandesNumeros Thread_Soma(int Iteracoes)
     GrandesNumeros Numero2;
     GrandesNumeros Numero3;
     GrandesNumeros Soma;
+    GrandesNumeros Auxiliar;
+	
+    mpf_init2(Auxiliar.m_Resultado,  1500000);
+    mpf_set_str(Auxiliar.m_Resultado, "1", 10);
     
     mpf_init2(Numero2.m_Resultado, 1500000);
     mpf_set_str(Numero2.m_Resultado, "0", 10);
@@ -58,8 +62,8 @@ GrandesNumeros Thread_Soma(int Iteracoes)
 	
 	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
-        Numero1 = Fatorial(i, Numero3);
-	//mpf_clear (Auxiliar);
+        Numero1 = Fatorial(i, Numero3, Auxiliar);
+	mpf_set_str(Auxiliar.m_Resultado, "1", 10);
         Numero3 = Numero1;
         Numero3.m_Numero = i;
         mpf_ui_div(Numero2.m_Resultado, 1, Numero1.m_Resultado);
