@@ -33,7 +33,10 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
         
         mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
     }
+	
     Numero = Auxiliar;
+    mpf_clear (Auxiliar);
+	
     return Numero;
 }
 
