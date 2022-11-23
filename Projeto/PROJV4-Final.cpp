@@ -35,7 +35,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
     }
 	
     Numero = Auxiliar;
-    mpf_clear (Auxiliar.m_Resultado);
+    delete Auxiliar;
 	
     return Numero;
 }
