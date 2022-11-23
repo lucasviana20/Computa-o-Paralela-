@@ -47,7 +47,7 @@ int main()
     gmp_printf("e= %.75Ff\n", Soma.m_Numero);
     
     Arquivo = fopen("Euler.txt", "w");
-    mpf_out_str(Arquivo, 10, .75Ff, Soma.m_Numero);
+    mpf_out_str(Arquivo, 10, 75Ff, Soma.m_Numero);
     fclose(Arquivo);
     
     return 0;
