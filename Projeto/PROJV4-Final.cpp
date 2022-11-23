@@ -59,7 +59,7 @@ GrandesNumeros Thread_Soma(int Iteracoes)
 	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
         Numero1 = Fatorial(i, Numero3);
-	mpf_clear (Auxiliar);
+	//mpf_clear (Auxiliar);
         Numero3 = Numero1;
         Numero3.m_Numero = i;
         mpf_ui_div(Numero1.m_Resultado, 1, Numero1.m_Resultado);
