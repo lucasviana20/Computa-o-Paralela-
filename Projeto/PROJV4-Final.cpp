@@ -35,7 +35,7 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
     }
 	
     Numero = Auxiliar;
-    delete Auxiliar;
+    delete *Auxiliar;
 	
     return Numero;
 }
