@@ -17,7 +17,7 @@ class GrandesNumeros
         mpf_t m_Resultado;
 };
 
-GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
+void Fatorial(int Num , GrandesNumeros Numero)
 {
     GrandesNumeros Auxiliar;
     mpf_init2(Auxiliar.m_Resultado,  1500000);
@@ -34,7 +34,9 @@ GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
         mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
     }
 	
-    return Auxiliar;
+    Numero = Auxiliar;
+	
+    //return Auxiliar;
 }
 
 GrandesNumeros Thread_Soma(int Iteracoes)
