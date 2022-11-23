@@ -41,7 +41,6 @@ GrandesNumeros Thread_Soma(int Iteracoes)
 {
     GrandesNumeros Numero1;
     GrandesNumeros Numero2;
-    GrandesNumeros Numero3;
     GrandesNumeros Soma;
     
     mpf_init2(Numero2.m_Resultado, 1500000);
@@ -50,18 +49,16 @@ GrandesNumeros Thread_Soma(int Iteracoes)
     mpf_init2(Soma.m_Resultado, 1500000);
     mpf_set_str(Soma.m_Resultado, "0", 10);
     
-    mpf_init2(Numero3.m_Resultado, 1500000);
-    mpf_set_str(Numero3.m_Resultado, "0", 10);
-    Numero3.m_Numero = 0;
+    mpf_init2(Numero1.m_Resultado, 1500000);
+    mpf_set_str(Numero1.m_Resultado, "0", 10);
+    Numero1.m_Numero = 0;
     
     int id_thread = omp_get_thread_num() , thread_count = omp_get_num_threads();
 	
 	for(int i = id_thread ; i < Iteracoes + 1 ; i = i + thread_count)
     {
-        Numero1 = Fatorial(i, Numero3);
-	mpf_clear (Auxiliar.m_Resultado);
-        Numero3 = Numero1;
-        Numero3.m_Numero = i;
+        Numero1 = Fatorial(i, Numero1);
+        Numero1.m_Numero = i;
         mpf_ui_div(Numero2.m_Resultado, 1, Numero1.m_Resultado);
         mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero2.m_Resultado);
     }
