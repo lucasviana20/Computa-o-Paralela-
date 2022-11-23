@@ -19,22 +19,25 @@ class GrandesNumeros
 
 GrandesNumeros Fatorial(int Num , GrandesNumeros Numero)
 {
-    GrandesNumeros Auxiliar;
-    mpf_init2(Auxiliar.m_Resultado,  1500000);
-    mpf_set_str(Auxiliar.m_Resultado, "1", 10);
+    mpf_t Auxiliar;
+    mpf_init2(Auxiliar,  1500000);
+    mpf_set_str(Auxiliar, "1", 10);
 	
     for(int i = Num ; i > 0 ; i--)
     {
         if(Numero.m_Numero == i)
         {
-	    mpf_mul(Auxiliar.m_Resultado, Auxiliar.m_Resultado, Numero.m_Resultado);
-            return Auxiliar;
+	    mpf_mul(Auxiliar, Auxiliar, Numero.m_Resultado);
+		
+	    Numero.m_Resultado = Auxiliar;
+		
+            return Numero;
         }
         
-        mpf_mul_ui(Auxiliar.m_Resultado, Auxiliar.m_Resultado, i);
+        mpf_mul_ui(Auxiliar, Auxiliar, i);
     }
 	
-    Numero = Auxiliar;
+    Numero.m_Resultado = Auxiliar;
 	
     return Numero;
 }
