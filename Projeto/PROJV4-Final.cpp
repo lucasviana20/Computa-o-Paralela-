@@ -62,8 +62,8 @@ GrandesNumeros Thread_Soma(int Iteracoes)
 	mpf_clear (Auxiliar);
         Numero3 = Numero1;
         Numero3.m_Numero = i;
-        mpf_ui_div(Numero2.m_Resultado, 1, Numero1.m_Resultado);
-        mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero2.m_Resultado);
+        mpf_ui_div(Numero1.m_Resultado, 1, Numero1.m_Resultado);
+        mpf_add(Soma.m_Resultado, Soma.m_Resultado, Numero1.m_Resultado);
     }
 	
 	return Soma;
