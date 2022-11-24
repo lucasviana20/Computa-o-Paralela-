@@ -45,6 +45,16 @@ a variavel Auxiliar acima apresenta 5000000 bits de memoria.
 
 Sobre o paralelismo, as threads sao totalmente independentes; nos nossos testes usamos 2 threads apenas e elas rodam
 
+#execucao 
+
+
+![image](https://user-images.githubusercontent.com/74374381/203766444-2a85007a-0f55-425d-a0c8-7243447110fb.png)
+
+
+Casas certas 213242
+![image](https://user-images.githubusercontent.com/74374381/203766352-173e354d-9465-4931-a03f-f396a543b9f2.png)
+
+
 
 
 
