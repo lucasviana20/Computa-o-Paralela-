@@ -31,6 +31,21 @@ Grafico do speedup
 
 ![image](https://user-images.githubusercontent.com/74374381/200991101-413c0b1c-7929-4137-843f-63e2338af601.png)
 
+# Projeto V4 Versão Final
+O principal problema era como conseguir mostrar o maior numero de casas decimais possiveis, ja que o maior tipo de dado do c(double) tem apenas 15 casas decimais.
+Para resolver isso usamos a biblioteca gmp
+
+![image](https://user-images.githubusercontent.com/74374381/203760053-f686a646-105c-45b4-8597-aaf78de2ce98.png)
+
+Com ela podemos declarar uma variavel de tamanho arbitrario, limitado apenas pela sua quantidade de memoria
+
+![image](https://user-images.githubusercontent.com/74374381/203760394-9f0dd41a-ca03-4b5c-af19-fed96985508f.png)
+
+a variavel Auxiliar acima apresenta 5000000 bits de memoria.
+
+Sobre o paralelismo, as threads sao totalmente independentes; nos nossos testes usamos 2 threads apenas e elas rodam
+
+
 
 
 
